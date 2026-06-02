@@ -23,5 +23,10 @@ export const categories: Category[] = [
         id: "noon send",
         className: "text-[1.6rem]",
         image: null,
+    },
+    {
+        id: "home instant services",
+        className: "text-[1.4rem]",
+        image: null,
     }
 ]
