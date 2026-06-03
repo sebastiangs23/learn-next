@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Cards component */
+.card__container {
+  display: inline-block;
+  height: 1.2em;
+  line-height: 1.2em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.card__child {
+  display: block;
+  height: 1.1em;
+  line-height: 1.2em;
+  animation: rotateWords 4s infinite;
+}
+
+@keyframes rotateWords {
+  0%,
+  40% {
+    transform: translateY(0);
+  }
+
+  50%,
+  90% {
+    transform: translateY(-1em);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
