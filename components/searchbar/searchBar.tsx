@@ -20,9 +20,9 @@ export default function SearchBar() {
           <span className="mr-1 text-[1rem]">Search</span>
 
           <div className="search-word-container">
-            <span className="search-word">Fragrances</span>
-            <span className="search-word">PS5</span>
             <span className="search-word">iPhone</span>
+            <span className="search-word">Clothes</span>
+            <span className="search-word">Food</span>
           </div>
         </div>
 
