@@ -9,8 +9,8 @@ export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
 
   return (
-    <div className="sticky top-0 z-50 overflow-hidden">
-      <div className="relative h-50 overflow-hidden">
+    <div className="sticky top-0 z-50">
+      <div className="relative h-50">
         <img
           src="/videos/snow.gif"
           alt="background"

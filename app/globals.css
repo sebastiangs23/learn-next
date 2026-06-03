@@ -56,3 +56,39 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Search Bar */
+.search-word-container {
+  height: 1.5em;
+  overflow: hidden;
+  line-height: 1.5em;
+}
+
+.search-word {
+  display: block;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-size: 1rem;
+  animation: rotateSearchWords 6s infinite;
+}
+
+@keyframes rotateSearchWords {
+  0%,
+  25% {
+    transform: translateY(0);
+  }
+
+  35%,
+  60% {
+    transform: translateY(-1.5em);
+  }
+
+  70%,
+  95% {
+    transform: translateY(-3em);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
