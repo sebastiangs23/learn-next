@@ -13,8 +13,12 @@ export interface Category {
   textHTML?: ReactNode;
   selectedTextHTML?: ReactNode;
   itemSeletected?: {
-    text1?: string;
-    text2?: string;
+    color: string;
     background?: string;
   };
+}
+
+export interface CategorySelected {
+  selectedCategory: Category;
+  setSelectedCategory: (categoryId: Category) => void;
 }
