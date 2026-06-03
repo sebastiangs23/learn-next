@@ -34,14 +34,14 @@ export const categories: Category[] = [
     },
     textHTML: (
       <div className="flex flex-col items-center leading-none font-bold">
-        <span className="text-[1.5rem] text-black leading-none">nood</span>
-        <span className="text-[1.2rem] text-[#D70568] leading-none">FOOD</span>
+        <span className="text-[1.3rem] text-black leading-none">nood</span>
+        <span className="text-[1rem] text-[#D70568] leading-none">FOOD</span>
       </div>
     ),
     selectedTextHTML: (
       <div className="flex flex-col items-center leading-none font-bold">
-        <span className="text-[1.5rem] text-[#feee00] leading-none">nood</span>
-        <span className="text-[1.2rem] text-white leading-none">FOOD</span>
+        <span className="text-[1.3rem] text-[#feee00] leading-none">nood</span>
+        <span className="text-[1rem] text-white leading-none">FOOD</span>
       </div>
     ),
     image: null,
