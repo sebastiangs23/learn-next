@@ -1,5 +1,6 @@
 "use client";
-
+import { useAddress } from "@/context/userContext";
+import { ToastContainer, toast } from 'react-toastify';
 import {
   BsSearch,
   BsPlus,
@@ -9,11 +10,16 @@ import {
   BsUpload,
   BsPatchCheckFill,
   BsX,
+  BsHouseAdd
 } from "react-icons/bs";
 
+
 export default function LocationModal({ onClose }: { onClose: () => void }) {
+    const { address } = useAddress();
+
   return (
     <div className="fixed inset-0 z-[9999] bg-black/40">
+      <ToastContainer />
       <div className="fixed left-1/2 top-1/2 h-[70vh] w-[90vw] max-w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-[#f7f7f9] p-4">
         {/* Close */}
         <button
@@ -31,7 +37,9 @@ export default function LocationModal({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Search */}
-        <div className="mb-3 flex h-14 items-center gap-3 rounded-xl bg-white px-4 text-black shadow-sm">
+        <div 
+        onClick={() => toast("It's just a demo, search functionality is not implemented :((")}
+        className="mb-3 flex h-14 items-center gap-3 rounded-xl bg-white px-4 text-black shadow-sm">
           <BsSearch className="text-xl text-gray-600" />
           <span className="text-sm text-gray-700">
             Search for your building, area...
@@ -60,21 +68,20 @@ export default function LocationModal({ onClose }: { onClose: () => void }) {
             </div>
 
             <div className="flex items-center gap-4 text-gray-700">
-              <BsUpload />
+              <BsHouseAdd />
               <BsThreeDotsVertical />
             </div>
           </div>
 
           <div className="px-4 py-3">
             <p className="text-sm leading-snug text-gray-700">
-              Yas village, E-block , room 605, Juma Bin Adl Al Rumaithi Street,
-              Yas North - Yas Island - Abu Dhabi - United Arab Emirates
+              {address.place} {address.number}
             </p>
 
             <div className="my-3 border-t border-dashed border-gray-200" />
 
             <div className="flex items-center gap-2 text-sm text-gray-800">
-              <span>Sebastian Gomez, +971-52-3328967</span>
+              <span>{address.user} {address.phone} </span>
               <BsPatchCheckFill className="text-green-500" />
             </div>
           </div>
