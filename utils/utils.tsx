@@ -5,8 +5,7 @@ export const categories: Category[] = [
   {
     id: "noon",
     itemSeletected: {
-      text1: "",
-      text2: "",
+      color: "#feee00",
       background: "bg-[#feee00]",
     },
     textHTML: (
@@ -26,10 +25,9 @@ export const categories: Category[] = [
     image: null,
   },
   {
-    id: "noon food",
+    id: "noon-food",
     itemSeletected: {
-      text1: "text-[#feee00]",
-      text2: "text-white",
+      color: "#D70568",
       background: "bg-[#D70568]",
     },
     textHTML: (
@@ -51,14 +49,14 @@ export const categories: Category[] = [
     image: now_now,
     textHTML: `<>`,
     itemSeletected: {
-      text1: "",
+      color: "#FF5000",
       background: "bg-[#FF5000]",
     },
   },
   {
-    id: "home instant services",
+    id: "home-instant-services",
     itemSeletected: {
-      text1: "",
+      color: "#feee00",
       background: "bg-[#feee00]",
     },
     textHTML: (
@@ -87,7 +85,7 @@ export const categories: Category[] = [
     id: "pay",
     image: null,
     itemSeletected: {
-      text1: "",
+      color: "#532adb",
       background: "bg-[#532ADB]",
     },
     textHTML: (
