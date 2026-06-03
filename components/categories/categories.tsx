@@ -4,21 +4,20 @@ import Image from "next/image";
 import { useState } from "react";
 import { categories } from "@/utils/utils";
 import { Category } from "@/types/interfaces/categories/categories";
-import snowVid from "@/public/videos/snow.gif";
 
 export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
 
   return (
-    <div className="sticky top-0 z-50">
-      <div className="relative h-64 overflow-hidden">
+    <div className="sticky top-0 z-50 overflow-hidden">
+      <div className="relative h-50 overflow-hidden">
         <img
           src="/videos/snow.gif"
           alt="background"
           className="absolute h-full inset-0 w-full object-cover"
         />
 
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-b from-transparent to-white" />
+        <div className="absolute bottom-0 left-0 right-0 h-34 bg-linear-to-b from-transparent to-white" />
 
         <div className="relative z-10 p-4">
           <div className="flex gap-4 overflow-x-auto">
