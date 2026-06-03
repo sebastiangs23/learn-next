@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
 import { useCategory } from "@/context/CategoryContext";
+import { useAddress } from "@/context/userContext";
 import {
   BsFillHouseDoorFill,
   BsChevronDown,
@@ -10,6 +10,7 @@ import LocationModal from "@/components/modals/locationModal";
 
 export default function Location({onOpen}: {onOpen: (value: boolean) => void}) {
   const { selectedCategory } = useCategory();
+  const { address, addAddress, deleteAddress } = useAddress();
 
   const openModal = () => {
     onOpen(true);
@@ -17,7 +18,6 @@ export default function Location({onOpen}: {onOpen: (value: boolean) => void}) {
 
   return (
     <div className="relative px-4 mt-[-6rem] z-50">
-      {/* <LocationModal onClose={openModal} /> */}
       <div className="flex items-center justify-between p-3 ">
         <div>
           <div className="flex items-center gap-1 font-bold" style={{ color: selectedCategory.itemSeletected?.color ?? "#000000" }}>
@@ -27,7 +27,7 @@ export default function Location({onOpen}: {onOpen: (value: boolean) => void}) {
           </div>
 
           <span className=" 2 text-black">
-            Yas Island, Abu Dhabi
+            {address?.place} {address?.number}
           </span>
         </div>
 

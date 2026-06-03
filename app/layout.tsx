@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { CategorySelectedProvider } from "@/context/CategoryContext";
+import { AddressProvider } from "@/context/userContext";
+import Providers from "@/app/providers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -29,7 +31,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <CategorySelectedProvider>{children}</CategorySelectedProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
