@@ -1,13 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { CategoryItem } from "@/types/interfaces/categoryItems/categoryItems"
 
-export interface CategoryItem {
-  id: string;
-  name: string;
-  image: string;
-  alt: string;
-}
 
 interface CategoryItemsGridProps {
   items: CategoryItem[];
