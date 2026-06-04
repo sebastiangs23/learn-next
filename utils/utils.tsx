@@ -1,4 +1,7 @@
 import { Category } from "@/types/interfaces/categories/categories";
+import { CarouselSlide } from "@/types/interfaces/adds/adds";
+import { categoryItems } from "@/types/interfaces/categoryItems/categoryItems";
+
 import now_now from "../public/images/now-now.png";
 
 export const categories: Category[] = [
@@ -62,8 +65,12 @@ export const categories: Category[] = [
     textHTML: (
       <div className=" font-bold">
         <div className="card__container">
-          <span className="card__child text-[0.95rem] font-bold text-black">instant</span>
-          <span className="card__child text-[0.95rem] font-bold text-black">home</span>
+          <span className="card__child text-[0.95rem] font-bold text-black">
+            instant
+          </span>
+          <span className="card__child text-[0.95rem] font-bold text-black">
+            home
+          </span>
         </div>
 
         <span className="text-[0.95rem] font-bold text-black">services</span>
@@ -72,8 +79,12 @@ export const categories: Category[] = [
     selectedTextHTML: (
       <div className=" font-bold">
         <div className="card__container">
-          <span className="card__child text-[0.95rem] font-bold text-black">instant</span>
-          <span className="card__child text-[0.95rem] font-bold text-black">home</span>
+          <span className="card__child text-[0.95rem] font-bold text-black">
+            instant
+          </span>
+          <span className="card__child text-[0.95rem] font-bold text-black">
+            home
+          </span>
         </div>
 
         <span className="text-[0.95rem] font-bold text-black">services</span>
@@ -102,3 +113,68 @@ export const categories: Category[] = [
     ),
   },
 ];
+
+export const uae: CarouselSlide[] = [
+  {
+    id: "1",
+    type: "image",
+    src: "https://a.nooncdn.com/mpcms/EN0001/assets/f66850f5-723f-41fd-84e8-29cb365f8c95.png?width=800",
+    alt: "uae"
+  },
+  {
+    id: "2",
+    type: "image",
+    src: "https://a.nooncdn.com/mpcms/EN0001/assets/f66850f5-723f-41fd-84e8-29cb365f8c95.png?width=800",
+    alt: "uae1"
+  }
+]
+
+export const adds: CarouselSlide[] = [
+  {
+    id: "1",
+    type: "video",
+    src: "https://a.nooncdn.com/mpcms/EN0001/assets/1f148cdc-34a8-48c5-81ff-d4c4b789f173.mp4",
+    alt: "soccer"
+  },
+  {
+    id: "2",
+    type: "image",
+    src: "https://a.nooncdn.com/mpcms/EN0001/assets/e2e674e5-588b-4f7c-a86d-1eac28057c77.gif?width=800",
+    alt: "grocery"
+  },
+  {
+    id: "3",
+    type: "video",
+    src: "https://a.nooncdn.com/mpcms/EN0001/assets/49ee5f2b-350e-422c-bb64-d45c4cf0fec2.mp4",
+    alt: "kibsons"
+  },
+  {
+    id: "4",
+    type: "image",
+    src: "https://a.nooncdn.com/mp-onsite/images/img_eltd22qa-en_mb_uae-hero-01.gif?width=800",
+    alt: "box"
+  }
+];
+
+export const categoriesItems: categoryItems[] = [
+  {
+    id: "1",
+    image: "https://a.nooncdn.com/mpcms/EN0001/assets/99f91df4-3b3a-4d7f-a801-c5705f77d6ab.png?width=800",
+    alt: "deals"
+  },
+  {
+    id: "2",
+    image: "https://a.nooncdn.com/mpcms/EN0001/assets/ef486639-7b0a-404d-bea6-8520db7e7fc9.png?width=800",
+    alt: "gaming"
+  },
+  {
+    id: "3",
+    image: "https://a.nooncdn.com/mpcms/EN0001/assets/0947a871-ee20-4c4f-9aa5-e75e70626b69.png?width=800",
+    alt: "sports"
+  },
+  {
+    id: "4",
+    image: "https://a.nooncdn.com/mpcms/EN0001/assets/3e923962-d5ee-4c1b-9aa3-66fe51da7baa.png?width=800",
+    alt: "gift cards"
+  }
+]
