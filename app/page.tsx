@@ -7,8 +7,9 @@ import SearchBar from "@/components/searchbar/searchBar";
 import LocationModal from "@/components/modals/locationModal";
 import Carrousel from "@/components/reusableComponents/carrousel";
 import CategoryItems  from "@/components/categoryItems/categoryItems";
+import Items from "@/components/categoryItems/items";
 
-import { uae, adds, categoriesItems } from "@/utils/utils";
+import { uae, adds, categoriesItems, bestSellingItems } from "@/utils/utils";
 import { ToastContainer } from 'react-toastify';
 
 export default function Home() {
@@ -27,6 +28,11 @@ export default function Home() {
       <SearchBar />
       <Carrousel  slides={uae} height={"3rem"} autoPlayDelay={4000} />
       <Carrousel  slides={adds} height={"10rem"} />
+      
+      <h4 className="text-black font-bold mx-4">Best picks for you.</h4>
+      <Items items={bestSellingItems} />
+
+      <h4 className="text-black font-bold mx-4">Categories</h4>
       <CategoryItems items={categoriesItems} />
     </div>
   );
