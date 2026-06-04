@@ -7,7 +7,7 @@ export interface Address {
 }
 
 export type AddressContextType = {
-  address: Address;
+  address: Address[];
   addAddress: (newAddress: Omit<Address, "id">) => void;
   deleteAddress: (id: number) => void;
 };

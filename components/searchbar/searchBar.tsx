@@ -2,6 +2,8 @@
 
 import { BsSearch, BsCamera } from "react-icons/bs";
 import { useCategory } from "@/context/CategoryContext";
+import { toast } from 'react-toastify';
+
 
 export default function SearchBar() {
   const { selectedCategory } = useCategory();
@@ -9,7 +11,6 @@ export default function SearchBar() {
   return (
     <div
       className="relative z-50 p-4"
-      onClick={() => console.log("SearchBar clicked")}
     >
       <div className="flex h-12 items-center rounded-2xl border border-gray-300 bg-white px-4">
         <BsSearch
@@ -29,7 +30,8 @@ export default function SearchBar() {
         <div className="mx-4 h-8 w-px bg-gray-300" />
 
         <BsCamera
-          className="text-2xl text-black"
+          onClick={() => toast("This is only a frontend-demo, the camera is not available :(") }
+          className="text-2xl text-black z-100"
           style={{ color: selectedCategory.itemSeletected?.color ?? "#000000" }}
         />
       </div>
