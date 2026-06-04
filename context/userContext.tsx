@@ -7,20 +7,29 @@ export const AddressContext = createContext<AddressContextType | undefined>(
   undefined,
 );
 
-export const AddressProvider = ({ children }: { children: React.ReactNode }) => {
-  const [address, setAddress] = useState<Address>({
-    id: 1,
-    place: "Yas Island, Abu Dhabi",
-    number: "Apt A123",
-    phone: "+971523328967",
-    user: "Sebastián Gómez",
-  });
+export const AddressProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [address, setAddress] = useState<Address[]>([
+    {
+      id: 1,
+      place: "Yas Island, Abu Dhabi",
+      number: "Apt A123",
+      phone: "+971523328967",
+      user: "Sebastián Gómez",
+    },
+  ]);
 
   const addAddress = (newAddress: Omit<Address, "id">) => {
-    setAddress((prevAddress) => ({
+    setAddress((prevAddress) => [
       ...prevAddress,
-      ...newAddress,
-    }));
+      {
+        id: Date.now(),
+        ...newAddress,
+      },
+    ]);
   };
 
   const deleteAddress = (id: number) => {
