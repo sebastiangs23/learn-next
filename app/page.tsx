@@ -1,30 +1,39 @@
 "use client";
 
-import Categories from "@/components/categories/categories";
-import Carrousel from "@/components/reusableComponents/carrousel";
-import CategoryItems  from "@/components/categoryItems/categoryItems";
-import Items from "@/components/categoryItems/items";
 import BottomNav from "@/components/bottomNav/bottomNav";
+import CategoryTab from "@/views/Category";
+import HomeTab from "@/views/Home";
 
-import { uae, adds, categoriesItems, bestSellingItems } from "@/utils/utils";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
+import { useState } from "react";
 
 export default function Home() {
+  const [currentTab, setCurrentTab] = useState(1);
 
   return (
     <div className="relative bg-white">
       <ToastContainer toastClassName="!z-[99999]" />
 
-      <Categories />
-      <Carrousel  slides={uae} height={"3rem"} autoPlayDelay={4000} />
-      <Carrousel  slides={adds} height={"10rem"} />
-      
-      <h4 className="text-black font-bold mx-4">Best picks for you.</h4>
-      <Items items={bestSellingItems} />
+      {
+        currentTab === 1 ? 
+        (
+          <HomeTab />
+        ) 
+        : currentTab === 2 ? 
+        (
+          <CategoryTab />
+        )
+        : currentTab === 3 ?
+        (
+          <></>
+        )
+        : currentTab === 4 ?
+        (
+          <></>
+        ) : null
+      }
 
-      <h4 className="text-black font-bold mx-4">Categories</h4>
-      <CategoryItems items={categoriesItems} />
-      <BottomNav />
+      <BottomNav changeTab={(e: number) => setCurrentTab(e)} />
     </div>
   );
 }
