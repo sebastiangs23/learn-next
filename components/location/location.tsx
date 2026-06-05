@@ -6,12 +6,13 @@ import {
   BsChevronDown,
   BsSuitHeartFill,
 } from "react-icons/bs";
-import LocationModal from "@/components/modals/locationModal";
 
 export default function Location({
   onOpen,
+  className = "",
 }: {
   onOpen: (value: boolean) => void;
+  className?: string;
 }) {
   const { selectedCategory } = useCategory();
   const { address, addAddress, deleteAddress } = useAddress();
@@ -21,7 +22,7 @@ export default function Location({
   };
 
   return (
-    <div className="relative px-4 mt-[-6rem] z-50">
+    <div className={`relative px-4 z-50 ${className}`} >
       <div className="flex items-center justify-between p-3 ">
         <div>
           <div
