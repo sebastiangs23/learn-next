@@ -86,7 +86,7 @@ export default function Categories() {
         </div>
       </div>
 
-      <Location onOpen={setIsModalOpen} />
+      <Location onOpen={setIsModalOpen} className="mt-[-6rem]" />
 
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${

@@ -3,6 +3,7 @@
 import BottomNav from "@/components/bottomNav/bottomNav";
 import CategoryTab from "@/views/Category";
 import HomeTab from "@/views/Home";
+import CartTab from "@/views/CartTab";
 
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
@@ -29,7 +30,7 @@ export default function Home() {
         )
         : currentTab === 4 ?
         (
-          <></>
+          <CartTab />
         ) : null
       }
 
