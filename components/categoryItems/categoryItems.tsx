@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import { CategoryItem } from "@/types/interfaces/categoryItems/categoryItems"
 
-
 interface CategoryItemsGridProps {
   items: CategoryItem[];
   itemsPerPage?: number;
