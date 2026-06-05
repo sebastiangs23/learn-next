@@ -8,6 +8,7 @@ import LocationModal from "@/components/modals/locationModal";
 import Carrousel from "@/components/reusableComponents/carrousel";
 import CategoryItems  from "@/components/categoryItems/categoryItems";
 import Items from "@/components/categoryItems/items";
+import BottomNav from "@/components/bottomNav/bottomNav";
 
 import { uae, adds, categoriesItems, bestSellingItems } from "@/utils/utils";
 import { ToastContainer } from 'react-toastify';
@@ -34,6 +35,7 @@ export default function Home() {
 
       <h4 className="text-black font-bold mx-4">Categories</h4>
       <CategoryItems items={categoriesItems} />
+      <BottomNav />
     </div>
   );
 }
