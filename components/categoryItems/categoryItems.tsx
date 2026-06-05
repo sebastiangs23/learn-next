@@ -47,7 +47,7 @@ export default function CategoryItems({
   );
 
   return (
-    <div className="w-full bg-white px-3 py-2">
+    <div className="w-full bg-white px-3 py-2 mb-16">
       <div
         ref={scrollRef}
         onScroll={handleScroll}
