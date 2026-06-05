@@ -1,24 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCategory } from "@/context/CategoryContext";
 import { categories } from "@/utils/utils";
 import { Category } from "@/types/interfaces/categories/categories";
 
+import LocationModal from "@/components/modals/locationModal";
+import Location from "@/components/location/location";
+import SearchBar from "@/components/searchbar/searchBar";
+
 export default function Categories() {
   const { selectedCategory, setSelectedCategory } = useCategory();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCategorySelect = (category: Category) => {
     setSelectedCategory(category);
   };
 
   useEffect(() => {
-    setSelectedCategory(categories[0]); // Set the first category as default on component mount
+    setSelectedCategory(categories[0]);
   }, []);
 
   return (
     <div className="sticky top-0 z-50">
+      {isModalOpen && <LocationModal onClose={() => setIsModalOpen(false)} />}
+
       <div className="relative h-50">
         <img
           src="/videos/snow.gif"
@@ -55,7 +63,8 @@ export default function Categories() {
                       : "bg-white"
                   } flex items-center align-center justify-center rounded-2xl md:w-20 w-18 md:h-20 h-18 p-4`}
                 >
-                  {selectedCategory.id === category.id && category.selectedTextHTML
+                  {selectedCategory.id === category.id &&
+                  category.selectedTextHTML
                     ? category.selectedTextHTML
                     : category.textHTML}
                 </div>
@@ -64,6 +73,9 @@ export default function Categories() {
           </div>
         </div>
       </div>
+
+      <Location onOpen={setIsModalOpen} />
+      <SearchBar />
     </div>
   );
 }
