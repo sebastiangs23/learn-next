@@ -15,26 +15,18 @@ export default function Home() {
     <div className="relative bg-white">
       <ToastContainer toastClassName="!z-[99999]" />
 
-      {
-        currentTab === 1 ? 
-        (
-          <HomeTab />
-        ) 
-        : currentTab === 2 ? 
-        (
-          <CategoryTab />
-        )
-        : currentTab === 3 ?
-        (
-          <></>
-        )
-        : currentTab === 4 ?
-        (
-          <CartTab />
-        ) : null
-      }
-
-      <BottomNav changeTab={(e: number) => setCurrentTab(e)} />
+      <h1 className="text-black">
+      </h1>
+      {currentTab === 1 ? (
+        <HomeTab />
+      ) : currentTab === 2 ? (
+        <CategoryTab />
+      ) : currentTab === 3 ? (
+        <></>
+      ) : currentTab === 4 ? (
+        <CartTab redirectHome={() => setCurrentTab(1)} />
+      ) : null}
+      <BottomNav currentTab={currentTab} changeTab={setCurrentTab} />
     </div>
   );
 }
