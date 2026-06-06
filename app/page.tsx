@@ -1,40 +1,41 @@
 "use client";
 
+import { useState } from "react";
 import BottomNav from "@/components/bottomNav/bottomNav";
 import CategoryTab from "@/views/Category";
 import HomeTab from "@/views/Home";
 import CartTab from "@/views/CartTab";
-
+import ItemDetails from "@/components/categoryItems/itemDetails";
+import type { ItemInt } from "@/components/categoryItems/items";
 import { ToastContainer } from "react-toastify";
-import { useState } from "react";
 
 export default function Home() {
   const [currentTab, setCurrentTab] = useState(1);
+  const [selectedItem, setSelectedItem] = useState<ItemInt | null>(null);
 
   return (
     <div className="relative bg-white">
       <ToastContainer toastClassName="!z-[99999]" />
 
-      {
-        currentTab === 1 ? 
-        (
-          <HomeTab />
-        ) 
-        : currentTab === 2 ? 
-        (
-          <CategoryTab />
-        )
-        : currentTab === 3 ?
-        (
-          <></>
-        )
-        : currentTab === 4 ?
-        (
-          <CartTab />
-        ) : null
-      }
+      {selectedItem ? (
+        <ItemDetails item={selectedItem} onBack={() => setSelectedItem(null)} />
+      ) : currentTab === 1 ? (
+        <HomeTab onItemClick={setSelectedItem} />
+      ) : currentTab === 2 ? (
+        <CategoryTab />
+      ) : currentTab === 3 ? (
+        <></>
+      ) : currentTab === 4 ? (
+        <CartTab redirectHome={() => setCurrentTab(1)} />
+      ) : null}
 
-      <BottomNav changeTab={(e: number) => setCurrentTab(e)} />
+      <BottomNav
+        currentTab={currentTab}
+        changeTab={(tab) => {
+          setSelectedItem(null);
+          setCurrentTab(tab);
+        }}
+      />
     </div>
   );
 }
