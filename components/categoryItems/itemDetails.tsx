@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { BsChevronLeft } from "react-icons/bs";
 import { useCategory } from "@/context/CategoryContext";
+import { useCart } from "@/context/CartContext";
 import type { ItemInt } from "@/components/categoryItems/items";
 
 type ItemDetailsProps = {
@@ -13,8 +14,12 @@ type ItemDetailsProps = {
 
 export default function ItemDetails({ item, onBack }: ItemDetailsProps) {
   const { selectedCategory } = useCategory();
+  const { addToCart } = useCart();
+
   const scrollRef = useRef<HTMLDivElement | null>(null);
+
   const [activeImage, setActiveImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   const finalPrice = item.discount
     ? item.price - (item.price * item.discount) / 100
@@ -38,6 +43,14 @@ export default function ItemDetails({ item, onBack }: ItemDetailsProps) {
     });
 
     setActiveImage(index);
+  };
+
+  const increaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   };
 
   return (
@@ -159,12 +172,34 @@ export default function ItemDetails({ item, onBack }: ItemDetailsProps) {
 
       {/* Bottom add to cart */}
       <div className="fixed bottom-16 left-0 right-0 z-50 flex gap-2 border-t border-gray-200 bg-white p-3">
-        <div className="flex w-14 flex-col items-center justify-center rounded-xl border border-gray-200">
-          <span className="text-[10px] text-gray-400">QTY</span>
-          <span className="text-sm text-black">1</span>
+        <div className="flex w-20 items-center justify-between rounded-xl border border-gray-200 px-2">
+          <button
+            type="button"
+            onClick={decreaseQuantity}
+            className="text-lg font-bold text-black"
+          >
+            -
+          </button>
+
+          <div className="flex flex-col items-center">
+            <span className="text-[10px] text-gray-400">QTY</span>
+            <span className="text-sm text-black">{quantity}</span>
+          </div>
+
+          <button
+            type="button"
+            onClick={increaseQuantity}
+            className="text-lg font-bold text-black"
+          >
+            +
+          </button>
         </div>
 
-        <button className="flex-1 rounded-xl py-4 text-sm font-bold text-white" style={{background: selectedCategory?.itemSeletected?.color}} >
+        <button
+          type="button"
+          onClick={() => addToCart(item, quantity)}
+          className="flex-1 rounded-xl bg-blue-600 py-4 text-sm font-bold text-white"
+        >
           Add to cart
         </button>
       </div>

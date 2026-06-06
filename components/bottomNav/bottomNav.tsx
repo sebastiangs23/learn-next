@@ -1,6 +1,7 @@
 "use client";
 
 import { useCategory } from "@/context/CategoryContext";
+import { useCart } from "@/context/CartContext";
 import {
   BsHouseDoorFill,
   BsGrid,
@@ -15,6 +16,7 @@ type BottomNavProps = {
 
 export default function BottomNav({ currentTab, changeTab }: BottomNavProps) {
   const { selectedCategory } = useCategory();
+  const { cartCount } = useCart();
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-200 bg-white">
@@ -49,9 +51,18 @@ export default function BottomNav({ currentTab, changeTab }: BottomNavProps) {
         <button
           onClick={() => changeTab(4)}
           className="flex flex-col items-center"
-          style={{ color: selectedCategory.itemSeletected?.color }}
+          style={{ color: selectedCategory?.itemSeletected?.color }}
         >
-          <BsCart3 className="text-2xl" />
+          <div className="relative">
+            <BsCart3 className="text-2xl" />
+
+            {cartCount > 0 && (
+              <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-red-500 px-1 text-[10px] font-bold text-white">
+                {cartCount}
+              </span>
+            )}
+          </div>
+
           <span className="text-xs font-bold">Cart</span>
         </button>
       </div>
