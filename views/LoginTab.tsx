@@ -334,7 +334,7 @@ function AccountRow({
 }) {
   return (
     <button
-      onClick={() => toast("It's only a frontend demo")}
+      onClick={() => toast("It's only a frontend demo for the moment :(")}
       className="flex w-full items-center justify-between border-b border-gray-100 px-4 py-5 text-[#404553] last:border-b-0"
     >
       <div className="flex items-center gap-4">
