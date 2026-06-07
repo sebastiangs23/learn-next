@@ -5,6 +5,7 @@ import BottomNav from "@/components/bottomNav/bottomNav";
 import CategoryTab from "@/views/Category";
 import HomeTab from "@/views/Home";
 import CartTab from "@/views/CartTab";
+import LoginTab from "@/views/LoginTab";
 import ItemDetails from "@/components/categoryItems/itemDetails";
 import type { ItemInt } from "@/components/categoryItems/items";
 import { ToastContainer } from "react-toastify";
@@ -24,7 +25,7 @@ export default function Home() {
       ) : currentTab === 2 ? (
         <CategoryTab />
       ) : currentTab === 3 ? (
-        <></>
+        <LoginTab />
       ) : currentTab === 4 ? (
         <CartTab redirectHome={() => setCurrentTab(1)} />
       ) : null}
