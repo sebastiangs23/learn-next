@@ -16,8 +16,8 @@ export default function CategoriesTab() {
 
         <CategoryItems
           items={categoriesItems}
-          itemsPerPage={9}
-          rows={3}
+          itemsPerPage={16}
+          rows={5}
           onItemClick={(item) => console.log(item)}
         />
       </div>
