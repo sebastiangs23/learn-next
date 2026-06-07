@@ -272,6 +272,30 @@ export const categoriesItems: CategoryItem[] = [
       "https://a.nooncdn.com/mpcms/EN0001/assets/7913a408-36f8-4a80-933f-39650032b1d7.png?width=800",
     alt: "camera",
   },
+  {
+    id: "17",
+    name: "Shop Mahali",
+    image: "https://a.nooncdn.com/mpcms/EN0001/assets/121d8e08-64e8-4bd7-900d-47684a9a60bb.png?width=2400",
+    alt: "shop mahali"
+  },
+  {
+    id: "18",
+    name: "Stationary",
+    image: "https://a.nooncdn.com/mpcms/EN0001/assets/5f41e4a2-5fbd-4a4d-86af-ab9014a028b4.png?width=2400",
+    alt: "stationary"
+  },
+  {
+    id: "19",
+    name: "Pet Store",
+    image: "https://a.nooncdn.com/mpcms/EN0001/assets/9a95d092-7720-41d2-a58c-11840e06054e.png?width=2400",
+    alt: "pet store"
+  },
+  {
+    id: "20",
+    name: "Sportswear",
+    image: "https://a.nooncdn.com/mpcms/EN0001/assets/62a0fc6c-5369-4803-9499-bead73c201fa.png?width=2400",
+    alt: "sportswear"
+  }
 ];
 
 export const bestSellingItems: Item[] = [

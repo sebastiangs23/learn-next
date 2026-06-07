@@ -15,28 +15,33 @@ export default function Home() {
   const [selectedItem, setSelectedItem] = useState<ItemInt | null>(null);
 
   return (
-    <div className="relative bg-white">
-      <ToastContainer toastClassName="!z-[99999]" />
+    <main className="min-h-screen bg-[#20383d] md:flex md:justify-center">
+      <div className="relative min-h-screen w-full bg-white pb-16 md:h-screen md:max-w-[430px] md:overflow-y-auto md:shadow-2xl">
+        <ToastContainer toastClassName="!z-[99999]" />
 
-      {selectedItem ? (
-        <ItemDetails item={selectedItem} onBack={() => setSelectedItem(null)} />
-      ) : currentTab === 1 ? (
-        <HomeTab onItemClick={setSelectedItem} />
-      ) : currentTab === 2 ? (
-        <CategoryTab />
-      ) : currentTab === 3 ? (
-        <LoginTab />
-      ) : currentTab === 4 ? (
-        <CartTab redirectHome={() => setCurrentTab(1)} />
-      ) : null}
+        {selectedItem ? (
+          <ItemDetails
+            item={selectedItem}
+            onBack={() => setSelectedItem(null)}
+          />
+        ) : currentTab === 1 ? (
+          <HomeTab onItemClick={setSelectedItem} />
+        ) : currentTab === 2 ? (
+          <CategoryTab />
+        ) : currentTab === 3 ? (
+          <LoginTab />
+        ) : currentTab === 4 ? (
+          <CartTab redirectHome={() => setCurrentTab(1)} />
+        ) : null}
 
-      <BottomNav
-        currentTab={currentTab}
-        changeTab={(tab) => {
-          setSelectedItem(null);
-          setCurrentTab(tab);
-        }}
-      />
-    </div>
+        <BottomNav
+          currentTab={currentTab}
+          changeTab={(tab) => {
+            setSelectedItem(null);
+            setCurrentTab(tab);
+          }}
+        />
+      </div>
+    </main>
   );
 }

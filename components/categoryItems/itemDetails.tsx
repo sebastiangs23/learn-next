@@ -171,7 +171,7 @@ export default function ItemDetails({ item, onBack }: ItemDetailsProps) {
       </div>
 
       {/* Bottom add to cart */}
-      <div className="fixed bottom-16 left-0 right-0 z-50 flex gap-2 border-t border-gray-200 bg-white p-3">
+      <div className="fixed bottom-16 left-0 right-0 z-50 flex gap-2 border-t border-gray-200 bg-white p-3 md:left-1/2 md:right-auto md:w-[430px] md:-translate-x-1/2">
         <div className="flex w-20 items-center justify-between rounded-xl border border-gray-200 px-2">
           <button
             type="button"
