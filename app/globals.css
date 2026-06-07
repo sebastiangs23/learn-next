@@ -92,3 +92,22 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Login */
+.login-tape-image {
+  animation: loginTapeMove 18s linear infinite;
+}
+
+@keyframes loginTapeMove {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-35%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
