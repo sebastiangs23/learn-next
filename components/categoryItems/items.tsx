@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BsHeartFill, BsPlusLg, BsStarFill } from "react-icons/bs";
+import { useCategory } from "@/context/CategoryContext";
 
 export interface ItemInt {
   id: string;
@@ -27,10 +28,15 @@ const DELIVERY_ICON =
 function ProductCard({
   item,
   onItemClick,
+  isFavorite,
+  onToggleFavorite,
 }: {
   item: ItemInt;
   onItemClick?: (item: ItemInt) => void;
+  isFavorite: boolean;
+  onToggleFavorite: (itemId: string) => void;
 }) {
+  const { selectedCategory } = useCategory();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const finalPrice = item.discount
@@ -64,10 +70,16 @@ function ProductCard({
 
         <button
           type="button"
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleFavorite(item.id);
+          }}
           className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-white/95 shadow-sm"
         >
-          <BsHeartFill className="text-[13px] text-[#7e859b]" />
+          <BsHeartFill
+            className="text-[13px]"
+            style={{color: isFavorite ? selectedCategory.itemSeletected?.color : "#7e859b" }}
+          />
         </button>
 
         <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-1">
@@ -155,10 +167,26 @@ function ProductCard({
 }
 
 export default function Items({ items, onItemClick }: ItemsProps) {
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+
+  const toggleFavorite = (itemId: string) => {
+    setFavoriteIds((prev) =>
+      prev.includes(itemId)
+        ? prev.filter((id) => id !== itemId)
+        : [...prev, itemId],
+    );
+  };
+
   return (
     <div className="flex gap-3 overflow-x-auto px-3 py-4 [&::-webkit-scrollbar]:hidden">
       {items.map((item) => (
-        <ProductCard key={item.id} item={item} onItemClick={onItemClick} />
+        <ProductCard
+          key={item.id}
+          item={item}
+          onItemClick={onItemClick}
+          isFavorite={favoriteIds.includes(item.id)}
+          onToggleFavorite={toggleFavorite}
+        />
       ))}
     </div>
   );
